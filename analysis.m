@@ -166,7 +166,7 @@ for iSj = 1:numel(sdata)
 	data_pp							= ft_preprocessing(cfg_pp, data);
 	
 	cfg								= [];
-	cfg.offset						= -1 .* data.trialinfo(:,1); % double check that, I think this shofts the 0 point to the cue instead of the tone
+	cfg.offset						= -1 .* data.trialinfo(:,1);
 	data_re							= ft_redefinetrial(cfg, data_pp);
 	
 	cfg_sel							= [];
@@ -211,7 +211,7 @@ for iSj = 1:numel(sdata)
 	cfg.width                       = cycles;                             
 	cfg.toi                         = -7:0.005:5;
 	cfg.foi                         = tfrlimits(1):0.005:tfrlimits(2);    
-	data_freq						= ft_freqanalysis(cfg, data_re); % FOR EVERY TRAIL Warning: output frequencies are different from input frequencies, multiples of the same bin were requested but not given
+	data_freq						= ft_freqanalysis(cfg, data_re);
 	data_freq.id					= data.id;
 	data_freq.id_name				= data.id_name;
 	realsave(fullfile(path_result, [data.id_name '.mat']), data_freq); 
@@ -285,7 +285,7 @@ realsave(fullfile(paths.tfr_coll, ['all_datasets_RC.mat']), RC)
 % 		end
 % 		
 % 		cfg                     = [];
-% 		data_ga                 = ft_freqgrandaverage(cfg, data{:}); %%sdata{:} more than one subject
+% 		data_ga                 = ft_freqgrandaverage(cfg, data{:});
 % 		data_ga.id				= name;
 % 		
 % 		cfg						= [];
